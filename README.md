@@ -98,8 +98,6 @@ g++ obj/*.o -o bin/library_manager
 ./bin/library_manager
 ```
 
-## Usage Guide
-
 ### Main Menu Options
 
 1. **Add New Book**
@@ -201,7 +199,6 @@ The system includes comprehensive input validation:
 - Graceful handling of edge cases
 - Memory management with RAII principles
 
-## Future Enhancements
 
 ### Planned Features
 - **PostgreSQL Integration**: Database storage option
@@ -250,11 +247,6 @@ The system has been tested with:
 4. Test thoroughly
 5. Submit a pull request
 
-## License
-
-This project is created for educational purposes as part of the EuTech curriculum.
-
-## Screenshots
 
 ### Main Menu
 ```
