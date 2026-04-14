@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV – Aziz Allagui</title>
+  <style>
+    /* ===================== RESET & BASE ===================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 11px;
+      color: #222;
+      background: #e0e0e0;
+    }
+
+    /* ===================== DOWNLOAD BUTTON ===================== */
+    #btn-print {
+      display: block;
+      text-align: center;
+      padding: 10px 0;
+      background: #1a2a4a;
+    }
+    #btn-print button {
+      background: #ffffff;
+      color: #1a2a4a;
+      border: none;
+      padding: 8px 28px;
+      font-size: 13px;
+      font-weight: bold;
+      border-radius: 4px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+    }
+    #btn-print button:hover { background: #d0e4ff; }
+
+    /* ===================== PAGE WRAPPER ===================== */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 0 auto;
+      background: #fff;
+      display: flex;
+      flex-direction: row;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+
+    /* ===================== LEFT COLUMN ===================== */
+    .left {
+      width: 72mm;
+      min-width: 72mm;
+      background: #1a2a4a;
+      color: #fff;
+      padding: 28px 18px 28px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Photo placeholder */
+    .photo-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .photo-circle {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: #c0c8d8;
+      border: 3px solid #4a7abf;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #1a2a4a;
+      font-size: 10px;
+      font-weight: bold;
+      overflow: hidden;
+    }
+    .photo-circle svg {
+      width: 44px;
+      height: 44px;
+      fill: #6a7fa8;
+      margin-bottom: 2px;
+    }
+    .photo-circle span {
+      font-size: 9px;
+      color: #1a2a4a;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    /* Name block */
+    .name-block {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .name-block h1 {
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .name-block .title {
+      font-size: 10px;
+      color: #a0c4e8;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+    .name-block .dispo {
+      font-size: 9px;
+      color: #7fb3e0;
+      margin-top: 3px;
+      font-style: italic;
+    }
+
+    /* Left section titles */
+    .left-section-title {
+      font-size: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #a0c4e8;
+      border-bottom: 2px solid #4a7abf;
+      padding-bottom: 4px;
+      margin-bottom: 9px;
+      margin-top: 16px;
+    }
+    .left-section-title:first-of-type { margin-top: 0; }
+
+    /* Contact info */
+    .contact-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .contact-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 10px;
+      color: #d8e8f8;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .contact-list li .icon { font-size: 11px; flex-shrink: 0; }
+
+    /* Languages */
+    .lang-list {
+      list-style: none;
+      padding: 0;
+    }
+    .lang-list li {
+      font-size: 10px;
+      color: #d8e8f8;
+      margin-bottom: 5px;
+      line-height: 1.4;
+    }
+    .lang-list li strong { color: #fff; }
+
+    /* Associatif */
+    .assoc-intro {
+      font-size: 9.5px;
+      color: #a0c4e8;
+      margin-bottom: 6px;
+      font-style: italic;
+    }
+    .assoc-list {
+      list-style: none;
+      padding: 0;
+    }
+    .assoc-list li {
+      font-size: 9.5px;
+      color: #d8e8f8;
+      margin-bottom: 5px;
+      padding-left: 10px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .assoc-list li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: #4a7abf;
+      font-size: 9px;
+    }
+
+    /* ===================== RIGHT COLUMN ===================== */
+    .right {
+      flex: 1;
+      background: #fff;
+      padding: 28px 22px 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Right section titles */
+    .section-title {
+      font-size: 11px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #1a2a4a;
+      border-bottom: 2.5px solid #4a7abf;
+      padding-bottom: 3px;
+      margin-bottom: 8px;
+      margin-top: 14px;
+    }
+    .section-title:first-of-type { margin-top: 0; }
+
+    /* Profile */
+    .profile-text {
+      font-size: 10px;
+      color: #333;
+      line-height: 1.55;
+    }
+
+    /* Experience block */
+    .exp-block {
+      margin-bottom: 10px;
+    }
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .exp-company {
+      font-size: 10.5px;
+      font-weight: bold;
+      color: #1a2a4a;
+    }
+    .exp-date {
+      font-size: 9px;
+      color: #6a7fa8;
+      white-space: nowrap;
+    }
+    .exp-role {
+      font-size: 10px;
+      color: #4a7abf;
+      font-style: italic;
+      margin-bottom: 4px;
+    }
+    .exp-list {
+      padding-left: 14px;
+      margin: 0;
+    }
+    .exp-list li {
+      font-size: 9.5px;
+      color: #333;
+      margin-bottom: 2px;
+      line-height: 1.45;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .skill-row {
+      font-size: 9.5px;
+      color: #333;
+      line-height: 1.45;
+    }
+    .skill-row strong { color: #1a2a4a; }
+
+    /* Projects */
+    .project-block {
+      margin-bottom: 9px;
+    }
+    .project-title {
+      font-size: 10px;
+      font-weight: bold;
+      color: #1a2a4a;
+      margin-bottom: 3px;
+    }
+    .project-list {
+      padding-left: 14px;
+      margin: 0;
+    }
+    .project-list li {
+      font-size: 9.5px;
+      color: #333;
+      margin-bottom: 2px;
+      line-height: 1.45;
+    }
+
+    /* Formation */
+    .formation-block {
+      margin-bottom: 8px;
+    }
+    .formation-school {
+      font-size: 10.5px;
+      font-weight: bold;
+      color: #1a2a4a;
+    }
+    .formation-degree {
+      font-size: 10px;
+      color: #4a7abf;
+      font-style: italic;
+    }
+    .formation-years {
+      font-size: 9px;
+      color: #6a7fa8;
+    }
+
+    /* ===================== PRINT STYLES ===================== */
+    @media print {
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      html, body {
+        width: 210mm;
+        height: 297mm;
+        background: #fff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      #btn-print {
+        display: none !important;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        box-shadow: none;
+        margin: 0;
+      }
+
+      .left {
+        background: #1a2a4a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .section-title, .left-section-title {
+        page-break-after: avoid;
+      }
+
+      .exp-block, .project-block, .formation-block {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Download button -->
+  <div id="btn-print">
+    <button onclick="window.print()">⬇ Télécharger en PDF</button>
+  </div>
+
+  <!-- CV Page -->
+  <div class="page">
+
+    <!-- ===== LEFT COLUMN ===== -->
+    <div class="left">
+
+      <!-- Photo placeholder -->
+      <div class="photo-wrap">
+        <div class="photo-circle">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+          </svg>
+          <span>Photo</span>
+        </div>
+      </div>
+
+      <!-- Name & title -->
+      <div class="name-block">
+        <h1>Aziz<br/>Allagui</h1>
+        <div class="title">Développeur Fullstack &amp; IA Junior</div>
+        <div class="dispo">Disponible pour un CDI<br/>dès octobre 2026</div>
+      </div>
+
+      <!-- Coordonnées -->
+      <div class="left-section-title">Coordonnées</div>
+      <ul class="contact-list">
+        <li><span class="icon">📞</span><span>06 38 79 64 25</span></li>
+        <li><span class="icon">✉️</span><span>mohamedaziz.allagui<br/>@viacesi.fr</span></li>
+        <li><span class="icon">📍</span><span>Paris, France</span></li>
+      </ul>
+
+      <!-- Langues -->
+      <div class="left-section-title">Langues</div>
+      <ul class="lang-list">
+        <li><strong>Arabe</strong> : Langue maternelle</li>
+        <li><strong>Anglais</strong> : B2</li>
+        <li><strong>Français</strong> : Bilingue</li>
+      </ul>
+
+      <!-- Engagement associatif -->
+      <div class="left-section-title">Engagement Associatif</div>
+      <div class="assoc-intro">Responsabilités associatives exercées à l'ESPRIT :</div>
+      <ul class="assoc-list">
+        <li>IEEE WIE Affinity Group – Communication Manager &amp; Media Manager</li>
+        <li>IEEE ESPRIT Student Branch – Président</li>
+        <li>IEEE Computer Society Chapter – Membre</li>
+      </ul>
+
+    </div><!-- /left -->
+
+    <!-- ===== RIGHT COLUMN ===== -->
+    <div class="right">
+
+      <!-- Profil professionnel -->
+      <div class="section-title">Profil Professionnel</div>
+      <p class="profile-text">
+        Élève ingénieur en dernière année au CESI, option Data Scientist, avec une expérience en développement fullstack et un fort intérêt pour l'intelligence artificielle. En alternance chez BCA Expertise, je participe au développement et à l'évolution d'applications web avec React.js et Spring Boot, à la conception d'API REST, à l'automatisation de tests avec Cypress ainsi qu'à un projet d'intégration de chatbot. Mes projets académiques en machine learning et Big Data renforcent cette double compétence en développement et IA. Je recherche un CDI dès octobre 2026.
+      </p>
+
+      <!-- Parcours professionnel -->
+      <div class="section-title">Parcours Professionnel</div>
+
+      <div class="exp-block">
+        <div class="exp-header">
+          <span class="exp-company">Développeur Fullstack &amp; IA — BCA Expertise, Paris, France</span>
+          <span class="exp-date">Oct. 2023 – Actuel</span>
+        </div>
+        <div class="exp-role">Alternance</div>
+        <ul class="exp-list">
+          <li>Développement, maintenance et évolution de 4 applications web</li>
+          <li>Conception et développement de 2 applications web from scratch</li>
+          <li>Développement frontend avec React.js et backend avec Spring Boot</li>
+          <li>Conception d'API REST et mise en place de tests automatisés avec Cypress</li>
+          <li>Contribution à la modernisation technique et fonctionnelle des applications</li>
+          <li>Participation à l'intégration d'un chatbot pour enrichir l'expérience utilisateur</li>
+          <li>Participation ponctuelle à des sujets liés au déploiement et à l'exploitation applicative</li>
+        </ul>
+      </div>
+
+      <div class="exp-block">
+        <div class="exp-header">
+          <span class="exp-company">Développeur logiciel / Fullstack — SAFER Normandie, Caen, France</span>
+          <span class="exp-date">Avr. 2023 – Juil. 2023</span>
+        </div>
+        <div class="exp-role">Stage</div>
+        <ul class="exp-list">
+          <li>Conception de fonctionnalités frontend et backend</li>
+          <li>Valorisation des données de l'entreprise avec DigDash et SQL</li>
+          <li>Migration d'éditions vers le moteur Aspose</li>
+        </ul>
+      </div>
+
+      <!-- Compétences -->
+      <div class="section-title">Compétences</div>
+      <div class="skills-grid">
+        <div class="skill-row"><strong>Frontend :</strong> React.js, JavaScript, HTML5, CSS3, Bootstrap</div>
+        <div class="skill-row"><strong>Backend :</strong> Spring Boot, Node.js, PHP</div>
+        <div class="skill-row"><strong>API &amp; tests :</strong> API REST, Cypress</div>
+        <div class="skill-row"><strong>Bases de données :</strong> MySQL, MongoDB, Oracle SQL</div>
+        <div class="skill-row"><strong>Outils &amp; environnements :</strong> Git, GitHub, Linux, VS Code, DigDash</div>
+        <div class="skill-row"><strong>Langages complémentaires :</strong> Python, C, C++</div>
+        <div class="skill-row"><strong>Data / IA :</strong> Machine learning, analyse de données, Jupyter Notebook</div>
+      </div>
+
+      <!-- Projets académiques -->
+      <div class="section-title">Projets Académiques</div>
+
+      <div class="project-block">
+        <div class="project-title">IA for HumanForYou — Analyse prédictive du turnover</div>
+        <ul class="project-list">
+          <li>Développement d'une démarche d'analyse de données pour identifier les variables expliquant le départ des employés</li>
+          <li>Prétraitement, fusion et exploration de plusieurs jeux de données RH</li>
+          <li>Entraînement et comparaison de modèles de machine learning pour la prédiction de l'attrition</li>
+          <li>Analyse des performances des modèles et formulation de recommandations métier, avec prise en compte des aspects éthiques</li>
+        </ul>
+      </div>
+
+      <div class="project-block">
+        <div class="project-title">Cloud Healthcare Unit — Projet Big Data décisionnel</div>
+        <ul class="project-list">
+          <li>Conception d'une solution de data warehouse pour centraliser et exploiter des données de santé issues de sources hétérogènes</li>
+          <li>Modélisation des données et intégration de plusieurs sources : base PostgreSQL, fichiers CSV, fichiers plats et données FTP</li>
+          <li>Implémentation d'une architecture orientée analyse, en tenant compte des enjeux de sécurité, de performance et de scalabilité</li>
+          <li>Exploitation et visualisation des données afin de répondre à des besoins décisionnels liés au suivi des patients et à l'activité hospitalière</li>
+        </ul>
+      </div>
+
+      <div class="project-block">
+        <div class="project-title">CESI_STAGE — Plateforme de recherche de stages</div>
+        <ul class="project-list">
+          <li>Développement d'une application web facilitant la recherche de stages pour les étudiants</li>
+          <li>Gestion des entreprises, des offres de stage et des candidatures</li>
+          <li>Conception de fonctionnalités permettant de centraliser et d'exploiter les données liées aux opportunités de stage</li>
+          <li><strong>Stack :</strong> React.js, Node.js, MongoDB, JavaScript, HTML, CSS, Bootstrap, PHP, PWA</li>
+        </ul>
+      </div>
+
+      <!-- Formation -->
+      <div class="section-title">Formation</div>
+
+      <div class="formation-block">
+        <div class="formation-school">Diplôme d'ingénieur informatique – Option Data Scientist</div>
+        <div class="formation-degree">CESI — École d'Ingénieurs, France</div>
+        <div class="formation-years">2022 – 2026</div>
+      </div>
+
+      <div class="formation-block">
+        <div class="formation-school">Cycle préparatoire intégré</div>
+        <div class="formation-degree">ESPRIT — École Supérieure Privée d'Ingénierie et de Technologie, Tunis, Tunisie</div>
+        <div class="formation-years">2020 – 2022</div>
+      </div>
+
+    </div><!-- /right -->
+
+  </div><!-- /page -->
+
+</body>
+</html>
